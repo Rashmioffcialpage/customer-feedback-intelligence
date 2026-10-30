@@ -1,0 +1,6 @@
+,count
+original_rows,1000
+invalid_rows_removed,0
+conflicting_label_rows_excluded,0
+duplicate_rows_removed,13
+clean_rows_remaining,987

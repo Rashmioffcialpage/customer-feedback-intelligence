@@ -1,0 +1,4 @@
+split,sentences,negative,positive
+Training,591,297,294
+Validation,198,99,99
+Test,198,100,98

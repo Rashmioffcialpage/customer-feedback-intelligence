@@ -1,0 +1,25 @@
+# Python environment and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Local credentials
+.env
+.env.*
+!.env.example
+
+# Downloaded datasets
+data/raw/
+
+# Trained model binaries
+*.joblib
+*.pkl
+
+# Frontend dependencies and builds
+node_modules/
+dist/
+
+# macOS
+.DS_Store

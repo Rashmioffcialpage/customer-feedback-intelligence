@@ -1,0 +1,4 @@
+,sentences
+both_models_incorrect,33
+only_naive_bayes_correct,8
+only_logistic_regression_correct,9
