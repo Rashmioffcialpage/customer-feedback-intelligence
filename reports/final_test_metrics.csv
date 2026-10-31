@@ -1,0 +1,2 @@
+model,min_df,training_sentences,test_sentences,test_accuracy,test_macro_f1,incorrect_predictions
+TF-IDF + logistic regression,1,591,198,0.7626262626262627,0.7626202076371706,47

@@ -1,0 +1,20 @@
+{
+  "model": "TF-IDF + logistic regression",
+  "min_df": 1,
+  "ngram_range": [
+    1,
+    2
+  ],
+  "training_sentences": 591,
+  "validation_accuracy": 0.803030303030303,
+  "validation_macro_f1": 0.8030252786776522,
+  "selection_metric": "validation_macro_f1",
+  "labels": {
+    "0": "Negative",
+    "1": "Positive"
+  },
+  "final_test_evaluated": true,
+  "test_accuracy": 0.7626262626262627,
+  "test_macro_f1": 0.7626202076371706,
+  "test_sentences": 198
+}
