@@ -4,7 +4,9 @@ An NLP project exploring sentiment classification of customer review
 sentences. I am building this project in public and documenting the
 experiments, results, and limitations.
 
-**Status: In progress — data preparation and initial model experiments.**
+**Status:** Working local application with single-review and batch
+predictions, visual summaries, and seven passing API integration tests.
+Mobile/browser verification is pending.
 
 ## Completed
 
@@ -65,4 +67,84 @@ and splitting steps documented in the notebook.
 
 This is a small, curated sample with positive and negative labels.
 It contains no neutral class and does not represent overall customer
-satisfaction. Results are not evidence of production readiness.
+satisfaction. Results are not evidence of production readiness.## Selected model and final evaluation
+
+The selected pipeline uses TF-IDF with unigrams and bigrams, `min_df=1`,
+and logistic regression.
+
+It was trained on 591 sentences. Model selection used a separate
+198-sentence validation set.
+
+| Evaluation set | Accuracy | Macro F1 |
+| --- | ---: | ---: |
+| Validation | 80.3% | 0.803 |
+| Final test | 76.3% | 0.763 |
+
+The final test contained 198 sentences: 151 predictions were correct
+and 47 were incorrect. Test results were not used to tune the model.
+
+These results come from a small, curated dataset and do not establish
+production readiness.
+
+## Application features
+
+- Single-review sentiment prediction
+- Batch analysis of up to 100 reviews
+- Positive and negative prediction counts
+- Visual distribution of batch predictions
+- Individual review results table
+- Input validation and error messages
+
+The model predicts one positive or negative label per review. It cannot
+identify neutral sentiment or separately classify mixed opinions.
+
+## Run the application
+
+Activate the project's virtual environment and install dependencies
+from the project root:
+
+```bash
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+The API requires `models/sentiment_pipeline.joblib`. Model binaries are
+excluded from Git. Generate this file using the model-training and
+model-saving cells in `notebooks/01_feedback_analysis.ipynb`.
+
+Start the backend:
+
+```bash
+python -m uvicorn backend.main:app --reload --port 8002
+```
+
+In another terminal, start the frontend:
+
+```bash
+npm --prefix frontend ci
+npm --prefix frontend run dev -- --port 5173 --strictPort
+```
+
+- Dashboard: <http://localhost:5173/>
+- API documentation: <http://127.0.0.1:8002/docs>
+
+## Verification
+
+Keep the backend running, then execute from the project root:
+
+```bash
+python -m unittest discover -s backend/tests -v
+npm --prefix frontend run lint
+npm --prefix frontend run build
+```
+
+The seven API integration tests cover health, prediction consistency,
+batch summaries, and invalid inputs.
+
+## API endpoints
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| GET | `/api/health` | API health check |
+| POST | `/api/predict` | Predict one review |
+| POST | `/api/predict/batch` | Predict up to 100 reviews |

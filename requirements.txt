@@ -5,4 +5,13 @@ seaborn
 scikit-learn
 jupyterlab
 ipykernel
+joblipandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+jupyterlab
+ipykernel
 joblib
+fastapi
+uvicorn
