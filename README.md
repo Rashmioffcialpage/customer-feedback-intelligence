@@ -147,4 +147,15 @@ batch summaries, and invalid inputs.
 | --- | --- | --- |
 | GET | `/api/health` | API health check |
 | POST | `/api/predict` | Predict one review |
-| POST | `/api/predict/batch` | Predict up to 100 reviews |
+| POST | `/api/predict/batch` | Predict up to 100 reviews ## Batch prediction demo
+
+![Batch sentiment predictions](docs/images/batch-results.png)
+
+Three illustrative reviews produced two positive predictions and one
+negative prediction. Percentages represent prediction shares, not model
+confidence or verified customer satisfaction.
+
+Manually checked:
+- Single-review predictions in the browser.
+- Batch predictions, summary counts, and review order.
+- Mobile layout at 390 px.|
