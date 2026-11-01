@@ -158,4 +158,21 @@ confidence or verified customer satisfaction.
 Manually checked:
 - Single-review predictions in the browser.
 - Batch predictions, summary counts, and review order.
-- Mobile layout at 390 px.|
+- Mobile layout at 390 px.## Verification
+
+- Seven API tests passed.
+- Frontend lint and production build passed.
+- Single and batch predictions verified in the browser.
+- Batch counts and review order checked.
+- Mobile layout checked at 390 px.
+- Backend outage displays an error and allows another submission.
+- Predictions recover after restarting the backend without refreshing the page.
+
+## Model results and limitations
+
+The selected TF-IDF and logistic regression model correctly classified
+151 of 198 held-out test sentences, achieving 76.3% accuracy.
+
+The model predicts positive or negative sentiment only. It does not
+separately identify neutral sentiment, mixed opinions, or sentiment
+about individual product or service aspects.|
