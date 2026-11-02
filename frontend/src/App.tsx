@@ -18,7 +18,7 @@ type BatchResult = {
   }
 }
 
-const API = 'http://127.0.0.1:8002'
+const API = (import.meta.env.VITE_API_URL ?? '').replace(/\/$/, '')
 
 const demoReviews = [
   'The sound quality is excellent.',
